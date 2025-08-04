@@ -974,7 +974,7 @@ button:
           delay(500); // 仅等待值更新，不更新滑块位置
 
   - platform: template
-    name: "1_Set Single Gate Threshold"
+    name: "Set Single Gate Threshold"
     icon: "mdi:check-circle"
     entity_category: config
     on_press:
@@ -1065,7 +1065,7 @@ number:
     entity_category: config
 
   - platform: template
-    name: "1 Threshold Value (dB)"
+    name: "Threshold Value (dB)"
     id: threshold_value_input
     optimistic: true
     min_value: 0
@@ -1080,7 +1080,7 @@ select:
 
     
   - platform: template
-    name: "1 Threshold Type"
+    name: "Threshold Type"
     id: threshold_type_select
     options:
       - "Motion Threshold"
@@ -1091,7 +1091,7 @@ select:
     optimistic: true
 
   - platform: template
-    name: "1 Gate Number"
+    name: "Gate Number"
     id: gate_number_select
     options: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
     initial_option: "0"

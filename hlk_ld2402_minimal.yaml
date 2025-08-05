@@ -54,7 +54,6 @@ hlk_ld2402:
 
 # Binary sensors - only essential ones
 binary_sensor:
-  # Presence detection - shows if someone is present in the detection area
   - platform: hlk_ld2402
     id: radar_presence
     name: "Presence"
@@ -78,6 +77,21 @@ binary_sensor:
     pin: GPIO12
     name: "gpio out pin presence"
     device_class: motion
+
+text_sensor:
+  - platform: hlk_ld2402
+    id: radar_firmware_version
+    name: "Radar Firmware Version"
+    entity_category: diagnostic
+    hlk_ld2402_id: radar_sensor
+    firmware_version: true
+
+  - platform: hlk_ld2402
+    id: radar_operating_mode
+    name: "Radar Operating Mode"
+    entity_category: diagnostic
+    hlk_ld2402_id: radar_sensor
+    operating_mode: true
 
 # Distance sensor - shows how far away the detected person is
 sensor:

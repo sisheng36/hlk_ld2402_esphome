@@ -1003,7 +1003,7 @@ button:
 
 # Add sliders for calibration coefficients and gate thresholds - all sliders must be in number section
 number:
- - platform: template
+  - platform: template
     name: "Calibration: Trigger Multiplier(default=3)"  # Updated name to clarify purposeurpose
     id: trigger_coefficient
     optimistic: true

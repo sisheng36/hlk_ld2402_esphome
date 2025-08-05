@@ -137,7 +137,6 @@ sensor:
 
 # Only include essential calibration button
 button:
-button:
   - platform: template
     name: "Calibrate(Threshold=3)"
     entity_category: config

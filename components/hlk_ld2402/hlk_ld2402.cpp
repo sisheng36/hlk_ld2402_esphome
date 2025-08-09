@@ -233,7 +233,7 @@ void HLKLD2402Component::loop() {
     last_debug_time = millis();
   }
 
-    // Every 10 seconds, report status
+ // Every 10 seconds, report status
   if (millis() - last_status_time > 10000) {
     ESP_LOGI(TAG, "Status: received %u bytes in last 10 seconds", byte_count);
     if (byte_count > 0) {

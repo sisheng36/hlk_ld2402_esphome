@@ -232,6 +232,23 @@ void HLKLD2402Component::loop() {
     ESP_LOGD(TAG, "Waiting for data. Available bytes: %d", available());
     last_debug_time = millis();
   }
+
+    // Every 10 seconds, report status
+  if (millis() - last_status_time > 10000) {
+    ESP_LOGI(TAG, "Status: received %u bytes in last 10 seconds", byte_count);
+    if (byte_count > 0) {
+      char hex_buf[50] = {0};
+      char ascii_buf[20] = {0};
+      for (int i = 0; i < 16 && i < 64; i++) {
+        sprintf(hex_buf + (i*3), "%02X ", last_bytes[i]);
+        sprintf(ascii_buf + i, "%c", (last_bytes[i] >= 32 && last_bytes[i] < 127) ? last_bytes[i] : '.');
+      }
+      ESP_LOGI(TAG, "Last bytes (hex): %s", hex_buf);
+      ESP_LOGI(TAG, "Free heap now: %u", ESP.getFreeHeap());
+    }
+    byte_count = 0;
+    last_status_time = millis();
+  }
   
   // Add this at the beginning of the loop method
   if (operating_mode_ == "Engineering" && (millis() - last_eng_debug_time) > 5000) {
